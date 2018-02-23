@@ -81,7 +81,7 @@ namespace SmartHotel.Clients.Core.ViewModels
 
         public ICommand SelectedDateCommand => new Command((d) => SelectedDate(d));
 
-        public ICommand NextCommand => new Command(async () => await NextAsync());
+        public ICommand NextCommand => new AsyncCommand(NextAsync);
 
         public override Task InitializeAsync(object navigationData)
         {
@@ -106,7 +106,7 @@ namespace SmartHotel.Clients.Core.ViewModels
             }
         }
 
-        private async Task NextAsync()
+        private Task NextAsync()
         {
             var navigationParameter = new Dictionary<string, object>
             {
@@ -115,7 +115,7 @@ namespace SmartHotel.Clients.Core.ViewModels
                 { "until", Until },
             };
 
-            await NavigationService.NavigateToAsync<BookingHotelsViewModel>(navigationParameter);
+            return NavigationService.NavigateToAsync<BookingHotelsViewModel>(navigationParameter);
         }
     }
 }

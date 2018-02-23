@@ -133,11 +133,11 @@ namespace SmartHotel.Clients.Core.ViewModels
 
         public ICommand FindCommand => new Command(SetFind);
 
-        public ICommand OpenDoorCommand => new Command(async () => await OpenDoorAsync());
+        public ICommand OpenDoorCommand => new AsyncCommand(OpenDoorAsync);
 
-        public ICommand CheckoutCommand => new Command(async () => await CheckoutAsync());
+        public ICommand CheckoutCommand => new AsyncCommand(CheckoutAsync);
 
-        public ICommand OpenBotCommand => new Command(async () => await OpenBotAsync());
+        public ICommand OpenBotCommand => new AsyncCommand(OpenBotAsync);
 
         public ICommand EcoModeCommand => new Command(EcoMode);
 
@@ -172,14 +172,14 @@ namespace SmartHotel.Clients.Core.ViewModels
             Find = true;
         }
 
-        private async Task OpenDoorAsync()
+        private Task OpenDoorAsync()
         {
-            await NavigationService.NavigateToPopupAsync<OpenDoorViewModel>(true);
+            return NavigationService.NavigateToPopupAsync<OpenDoorViewModel>(true);
         }
 
-        private async Task CheckoutAsync()
+        private Task CheckoutAsync()
         {
-            await NavigationService.NavigateToPopupAsync<CheckoutViewModel>(true);
+            return NavigationService.NavigateToPopupAsync<CheckoutViewModel>(true);
         }
 
         private async Task OpenBotAsync()
