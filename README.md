@@ -12,6 +12,7 @@ For this reference app scenario, we built several consumer and line-of-business 
 * [Public Website](https://github.com/Microsoft/SmartHotel360-public-web)
 * [Mobile Apps](https://github.com/Microsoft/SmartHotel360-mobile-desktop-apps)
 * [Sentiment Analysis](https://github.com/Microsoft/SmartHotel360-Sentiment-Analysis-App)
+* [Migrating Internal apps to Azure](https://github.com/Microsoft/SmartHotel360-internal-booking-apps)
 
 **Note:** This document is about the apps using **Xamarin**.
 
@@ -87,6 +88,14 @@ Xamarin.Forms enables you to build native UIs for iOS, Android, macOS, Linux, an
 **SmartHotel360 NFC**
 
 <img src="images/nfc.png" Width="210" />
+
+## Sample endpoints
+You can find the list of the sample endpoints in the following link: (http://sh360services-public.eastus2.cloudapp.azure.com/configuration-api/cfg/public-http).
+To change the endpoints you can modifiy the AppSettings.cs file in the SmartHotel.Clients project under the Shared Code folder:
+<img src="images/SampleEndpoints.png" Width="840"> 
+
+You can configure the public endpoints from your running app, when you double click the icon in the login page:
+<img src="images/PublicEndpoints.gif"> 
 
 ## Requirements
 
